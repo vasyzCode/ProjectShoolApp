@@ -25,10 +25,13 @@
                         text_size: root.width-25, 25
 
                     TextInput:
+                        on_text_validate: root.on_focus(self)
                         hint_text: "Логин"
                         id: login
-                        multiline:False
-                        font_size: login.size[-1] - (login.size[-1] * 0.3)
+                        focus: True
+                        multiline: False
+                        input_type: "text"
+                        font_size: login.size[-1] - (login.size[-1] * 0.4)
 
                 BoxLayout:
                     orientation: 'vertical'
@@ -42,15 +45,17 @@
                     TextInput:
                         hint_text: "Пароль"
                         id: password
+                        unfocus_on_touch: False
                         multiline:False
                         password:True
-                        font_size: password.size[-1] - (password.size[-1] * 0.3)
+                        input_type: "text"
+                        font_size: password.size[-1] - (password.size[-1] * 0.4)
             BoxLayout:
                 orientation: 'vertical'
                 spacing: -300
                 Label:
                     id: display_status
-                    text: 'Добро пожаловать!'
+                    text: ''
                     font_size: 32
 
                 Button:
